@@ -1,3 +1,5 @@
+// Simple Teensy code to control a DC motor with an encoder and measure its speed in RPM.
+
 #include <Arduino.h>
 
 const int encoderPin = 18;
