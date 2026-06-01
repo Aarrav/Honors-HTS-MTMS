@@ -54,9 +54,9 @@ void loop() {
   //myServoBL.write(25); //115 to 25
   //myServoBR.write(180); //85 to 170
 
-  morphDown(90);
+  morphDown(20);
   delay(4000);
-  morphUp(90);
+  morphUp(20);
   delay(4000);
 }  
   
