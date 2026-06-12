@@ -125,9 +125,14 @@ static void handleRCChannels(const mavlink_message_t &msg) {
     }
 
     // --- CH1 + CH2: Drive motors (arcade mix) ---
-    // Only drive if we are NOT in the middle of a morph transition
-    // (morphUp/Down already returned at this point, so it is safe)
-    driveFromRC(rc.chan1_raw, rc.chan2_raw);
+    // Motors are only allowed to rotate when morphed DOWN.
+    // When morphed UP, the drivetrain is disabled and motors are held stopped.
+    // (morphUp/Down already returned at this point, so morphIsUp is up to date)
+    if (morphIsUp) {
+        stopAllMotors();
+    } else {
+        driveFromRC(rc.chan1_raw, rc.chan2_raw);
+    }
 
     // --- Debug output ---
     printDirection(rc.chan1_raw, rc.chan2_raw);

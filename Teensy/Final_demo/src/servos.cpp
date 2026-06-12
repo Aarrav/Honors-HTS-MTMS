@@ -22,8 +22,8 @@ static void applyMorphServos(int pos) {
     pos = constrain(pos, 0, 105);
     servoFL.write(5  + pos);
     servoFR.write(170 - pos);
-    servoBL.write(160 - pos);
-    servoBR.write(10  + pos);
+    servoBL.write(145 - pos);
+    servoBR.write(25  + pos);
 }
 
 // --- Public functions ---
@@ -46,7 +46,7 @@ void morphUp(int speed) {
 
     Serial.printf("[Morph] UP  start pos=%d\n", currentPos);
 
-    for (int pos = currentPos; pos <= 105; pos++) {
+    for (int pos = currentPos; pos <= 100; pos++) {
         applyMorphServos(pos);
         currentPos = pos;
         delay(delayMs);

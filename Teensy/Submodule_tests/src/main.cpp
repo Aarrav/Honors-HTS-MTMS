@@ -39,8 +39,8 @@ void applyServos(int pos) {
     pos = constrain(pos, 0, 100);
     servoFL.write(5  + pos);
     servoFR.write(170 - pos);
-    servoBL.write(160 - pos);
-    servoBR.write(10  + pos);
+    servoBL.write(145 - pos);
+    servoBR.write(25  + pos);
 }
 
 void printAngles() {
